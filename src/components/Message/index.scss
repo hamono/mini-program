@@ -1,0 +1,83 @@
+.msg-mine {
+  position: relative;
+  display: inline-block;
+  margin-right: 10Px;
+  padding: 10Px;
+  border-radius: 10Px;
+  background-color: SpringGreen;
+  margin-top: 15Px;
+  max-width: 60%;
+  min-width: 10Px;
+  margin-bottom: 15Px;
+  word-wrap:break-word;
+  height: 20Px;
+}
+
+.box-msg {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 5Px;
+}
+
+.box-other {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 5Px;
+}
+
+.msg-other {
+  position: relative;
+  display: inline-block;
+  margin-left: 10Px;
+  padding: 10Px;
+  border-radius: 10Px;
+  background-color: white;
+  max-width: 60%;
+  min-width: 10Px;
+  margin-top: 15Px;
+  margin-bottom: 15Px;
+  word-wrap:break-word;
+  min-height: 20Px;
+}
+
+.img-mine {
+  width: 40Px;
+  height: 40Px;
+  overflow: hidden;
+  border-radius: 50%;
+  background-color: WhiteSmoke;
+  margin-right: 10Px;
+  margin-top: 15Px;
+  margin-bottom: 15Px;
+}
+
+.img-other {
+  width: 40Px;
+  height: 40Px;
+  overflow: hidden;
+  border-radius: 50%;
+  background-color: AliceBlue;
+  margin-left: 10Px;
+  margin-top: 15Px;
+  margin-bottom: 15Px;
+}
+
+.tip-mine {
+  width: 10Px;
+  height: 10Px;
+  transform: rotate(45deg);
+  background-color: SpringGreen;
+  position: absolute;
+  right: 61Px;
+}
+
+.tip-other {
+  width: 10Px;
+  height: 10Px;
+  transform: rotate(45deg);
+  background-color: white;
+  position: absolute;
+  left: 61Px;
+}
