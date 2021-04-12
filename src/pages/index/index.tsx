@@ -2,9 +2,7 @@ import { View, ScrollView, Input, Button } from "@tarojs/components";
 import "./index.scss";
 import useIndex, { MsgType } from "./hooks/useIndex";
 import Message, { RobotMessage } from "../../components/Message";
-import Animation from "../../components/FloatStar/Animation";
-import Happy from "../../components/FloatStar/Happy";
-
+import Happy from "../../components/ScaleImge";
 
 export default function Index() {
   const {
@@ -17,18 +15,15 @@ export default function Index() {
     handleKeyHeihgt,
     handleKeyHeihgtInit,
     backgroundImg,
-    floatAnimationPath,
-    setFloatAnimationPath,
+    show,
+    setShow,
+    happyness,
   } = useIndex();
 
   return (
     <View className="box" style={{ backgroundImage: `url(${backgroundImg})` }}>
-      <Animation
-        setFloatAnimationPath={setFloatAnimationPath}
-        floatAnimationPath={floatAnimationPath}
-      />
 
-      {/* <Happy /> */}
+      <Happy happyness={happyness} setShow={setShow} show={show} />
 
       <ScrollView
         className="scorll-view"

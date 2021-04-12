@@ -29,6 +29,8 @@ export default function useIndex() {
 
   // animation
   const [floatAnimationPath, setFloatAnimationPath] = useState("");
+  const [show,setShow]=useState(false)
+  const [happyness,setHappyness]=useState(true)
 
   const handleChange = useCallback((e) => {
     setValue(e.detail.value);
@@ -46,12 +48,13 @@ export default function useIndex() {
       setValue("");
 
       await getRecord(record);
+      setShow(true)
     }
 
     handleBackgrondImg();
 
     // setFloatAnimationPath(happy);
-    setFloatAnimationPath(sad);
+    // setFloatAnimationPath(sad);
   };
 
   const getRecord = async (prerecord: MsgType) => {
@@ -63,21 +66,20 @@ export default function useIndex() {
       },
     });
 
-    console.log(data);
-
     const record: MsgType = {
       value: data.data.msg,
       type: "robot",
       key: `robot${recordList.length}`,
     };
 
-    console.log(recordList);
+    if(data.data?.emotion==="POSITIVE"){
+      setHappyness(true)
+    }else{
+      setHappyness(false)
+    }
+
     setScrollIndex(record.key);
     setRecordList([...recordList, prerecord, record]);
-  };
-
-  const handlePath = () => {
-    setFloatAnimationPath("https://static.runoob.com/images/demo/demo3.jpg");
   };
 
   const handleKeyHeihgt = (e) => {
@@ -90,22 +92,20 @@ export default function useIndex() {
 
   const handleBackgrondImg = () => {
     const time = new Date().getHours();
-    console.log(time);
 
-    setBackgroundImg(img6);
-    // if (time >= 0 && time < 4) {
-    //   setBackgroundImg(img0);
-    // } else if (time >= 4 && time < 8) {
-    //   setBackgroundImg(img1);
-    // } else if (time >= 8 && time < 12) {
-    //   setBackgroundImg(img2);
-    // } else if (time >= 12 && time < 16) {
-    //   setBackgroundImg(img3);
-    // } else if (time >= 16 && time < 20) {
-    //   setBackgroundImg(img4);
-    // } else if (time >= 20 && time < 24) {
-    //   setBackgroundImg(img5);
-    // }
+    if (time >= 0 && time < 4) {
+      setBackgroundImg(img0);
+    } else if (time >= 4 && time < 8) {
+      setBackgroundImg(img1);
+    } else if (time >= 8 && time < 12) {
+      setBackgroundImg(img2);
+    } else if (time >= 12 && time < 16) {
+      setBackgroundImg(img3);
+    } else if (time >= 16 && time < 20) {
+      setBackgroundImg(img4);
+    } else if (time >= 20 && time < 24) {
+      setBackgroundImg(img5);
+    }
   };
 
   useEffect(() => {
@@ -116,8 +116,11 @@ export default function useIndex() {
     value,
     recordList,
     scrollIndex,
+    show,
+    happyness,
     handleChange,
     handleSend,
+    setShow,
     keyHeight,
     handleKeyHeihgt,
     handleKeyHeihgtInit,
